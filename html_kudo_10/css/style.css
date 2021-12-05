@@ -1,0 +1,523 @@
+@charset "UTF-8";
+html{
+    font-size: 62.5%;
+}
+
+body{
+    background-color: #EFEEEC;
+    font-family: "Cormorant Garamond", "游明朝", serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: 1.4rem;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+.title{
+    font-size: 3rem;
+    margin: 150px 0 40px 0 ;
+}
+
+.fadeUp{
+    animation-name:fadeUpAnime;
+    animation-duration:2s;
+    animation-fill-mode:forwards;
+    opacity:0;
+    }
+    
+    @keyframes fadeUpAnime{
+      from {
+        opacity: 0;
+      transform: translateY(100px);
+      }
+    
+      to {
+        opacity: 1;
+      transform: translateY(0);
+      }
+    }
+
+    
+
+
+/* -----------------------------
+MV
+ ----------------------------- */
+
+
+/* スライダー全体 */
+.mv .slider{
+    position: relative;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+  
+  }
+  
+  
+  /* スライダー画像 */
+  .slider .image{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+  
+  /*
+    ①スライド画像
+    表示する画像を定義
+  */
+  .slider .image:nth-of-type(1){
+    background-image: url("../img/mv_1.jpg");
+  }
+  .slider .image:nth-of-type(2){
+    animation-delay: 5s;
+    background-image: url("../img/mv_2.jpg");
+  }
+  .slider .image:nth-of-type(3){
+    animation-delay: 10s;
+    background-image: url("../img/mv_3.jpg");
+  }
+  
+  /*
+    ②アニメーション設定
+    animation-durationのみ変更
+  */
+  .slider .image{
+    animation-name: anime;
+    animation-delay: 0;
+    animation-iteration-count: infinite;
+    animation-duration: 15s;  /* ①で設定したanimation-delayを合計を挿入 */
+  }
+  
+  /* アニメーション定義 */
+  @keyframes anime {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.18);
+    }
+  }
+  
+  /* 装飾用 */
+  
+  body{
+    margin: 0;
+    padding: 0;
+  }
+  
+  .title{
+    z-index: 100;
+    position: absolute;
+    left: 70px;
+    top: 30px;
+  }
+
+ 
+
+/* -----------------------------
+header
+ ----------------------------- */
+
+
+ .header {
+    color: #000;
+    transition: color 0.4s ease-out;
+  } /* スクロールしたらヘッダーメニューのフォントカラー変更 */
+  .header.headerColorScroll {
+    color: #000;
+    transition: color 0.4s ease-out;
+  }
+
+.header-name{
+    font-size: 3rem;
+    margin: 0 0 10px 0;
+}
+
+.header-text{
+    font-size: 2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+}
+
+
+.header-wrapper{
+    display: flex;
+    position: fixed;
+    left: 70px;
+    top: 50px;
+    transition: color 0.4s ease-out;
+    z-index: 100;
+}
+
+.navigation{
+    position: fixed;
+    right: 70px;
+    top: 50px;
+}
+
+ .nav-list{
+    text-align: right;
+    font-size: 1.8rem;
+ }
+
+ .nav-item{
+    margin: 0 0 20px 0;
+    
+ }
+
+ .nav-item>a{
+     color: #000;
+    text-decoration: none;
+ }
+
+
+ /* -----------------------------
+works
+ ----------------------------- */
+
+.works{
+   margin-top: 50px;
+}
+
+.works-all{
+    text-align: center;
+    margin: auto;
+    max-width: 1300px;
+    padding: 0 50px;
+}
+
+.title2{
+    font-size: 3rem;
+    margin: 150px 0 40px 0 ;
+    text-align: left;
+}
+
+ .works-line{
+    display: flex;
+    margin: 0 0 80px 0;
+}
+
+.works-contents1{
+    width: 640px;
+    margin: 0 20px 0 0;
+}
+
+.works-contents2{
+    width: 640px;
+    margin: 0 0 0 20px;
+}
+
+.works-contents3{
+    width: 640px;
+    margin: 0 0 0 20px;
+}
+
+.works-ph{
+    width: 100%;
+}
+
+.works-item{
+    text-align: left;
+    margin: 10px 0 0 0 ;
+}
+
+.works-item2{
+    text-align: left;
+    margin: 30px 0 0 0 ;
+}
+
+.works-days{
+    font-size: 1.6rem;
+    margin: 0 0 10px 0;
+}
+
+.works-title{
+    font-size: 3rem;
+    margin: 0 0 10px 0;
+}
+
+.works-skills{
+    font-size: 1.6rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+}
+
+.works-skills2{
+    font-size: 1.6rem;
+    margin: 0 0 30px 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+}
+
+
+.works-text{
+    line-height: 2;
+}
+
+.works-image .info{
+    opacity: 1;
+    transition : 0.5s;
+}
+
+
+.works-image .info:hover{
+    opacity: 0.6;
+    transition : 0.5s;
+}
+
+
+/*========= モーダル表示のためのCSS ===============*/
+
+/*全て共通：hideエリアをはじめは非表示*/
+.hide-area{
+    display: none;
+  }
+
+ /*全て共通：モーダルのボタンの色を変更したい*/
+.modaal-close:after, 
+.modaal-close:before{
+  background:#ccc;  
+}
+
+.modaal-close:focus:after,
+.modaal-close:focus:before,
+.modaal-close:hover:after,
+.modaal-close:hover:before{
+  background:#666;
+}
+ 
+
+
+
+ /* -----------------------------
+about
+ ----------------------------- */
+
+ .about-all{
+    text-align: center;
+    margin: auto;
+    max-width: 1300px;
+    padding: 0 50px;
+}
+
+.title3{
+    font-size: 3rem;
+    margin: 180px 0 60px 0;
+    text-align: left;
+}
+
+.about-wrapper{
+    text-align: center;
+    margin: auto;
+}
+
+.about-line{
+    display: flex;
+    text-align: left;
+    margin: 0 0 150px 0;
+ }
+
+ .about-title{
+    width: 640px;
+    margin: 0 20px 0 0;
+    line-height: 1.5;
+ }
+
+ .about-catch{
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+ }
+
+ .about-copy{
+    letter-spacing: 0.2em;
+ }
+
+ .about-copy{
+    font-size: 2.8rem;
+    margin: 10px 0 0 0;
+ }
+
+ .about-textarea{
+    width: 640px;   
+    margin: 0 0 0 20px;
+ }
+
+ .about-text{
+    line-height: 2;
+    text-align: justify;
+ }
+
+.about-ph{
+    margin: 0 20px 0 0;
+    width: 640px;
+}
+
+.kudo-ph{
+    width: 100%;
+}
+
+ .about-profile{
+    width: 640px;    
+    margin: 0 0 0 20px;
+ }
+
+ .about-name{
+    font-size: 2.8rem;
+    margin: 0 0 20px 0;
+ }
+
+ .about-post{
+    font-size: 20px;
+    margin: 0 0 30px 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+ }
+
+ .about-profiletext{
+    line-height: 2;
+    text-align: justify;
+ }
+
+
+
+  /* -----------------------------
+contact
+ ----------------------------- */
+
+.contact{
+    margin-bottom: 50px;
+}
+
+.contact-all{
+    text-align: center;
+    margin: auto;
+    max-width: 1300px;
+    padding: 0 50px;
+}
+
+.title4{
+    font-size: 3rem;
+    margin: 100px 0 60px 0;
+    text-align: left;
+}
+
+.contact-line{
+    display: flex;
+}
+
+.contact-title{
+    text-align: left;
+    width: 640px;
+    margin: 0 20px 0 0;
+}
+
+.contact-catch{
+    font-size: 1.6rem;
+    line-height: 1.8;
+    margin: 0 0 60px 0;
+}
+
+.contact-text{
+    line-height: 2;
+    width: 500px;
+    margin: 0 0 60px 0;
+}
+
+.contact-subjunction{
+    font-size: 1.2rem;
+    width: 500px;
+    line-height: 1.6;
+    margin: 0 0 200px 0;
+}
+
+.form-inner{
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    width: 640px;
+
+}
+
+.form-title{
+    width: 120px;
+    margin: 0 50px 20px 0;
+    font-size: 1.6rem;
+    margin: 0 30px 20px 0;
+    border-bottom: 1px solid #000;
+    padding-bottom: 2px;
+}
+
+.form-title2{
+    width: 120px;
+    margin: 0 50px 0 0;
+    font-size: 1.6rem;
+    margin: 0 30px 0px 0;
+    border-bottom: 1px solid #000;
+    padding-bottom: 2px;
+}
+
+
+.form-item{
+    width: 440px;
+    margin: 0 0 20px 0;
+    border: 0px solid none;
+}
+
+.form-radio{
+    width: 452px;  
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.form-parts{
+    width: 440px;
+    padding: 5px;
+    background-color: none;
+    border: 1px solid #ccc;
+}
+
+input, select, textarea {
+    background-color: transparent;
+    }
+
+.btn{
+    display: inline-block;;
+    background-color: #707070;
+    width: 410px;
+    text-align: center;
+    line-height: 20px;
+    margin-top: 20px;
+    border-radius: 2px;
+    padding: 20px 23px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-item{
+    text-align: right;
+}
+
+
+
+.footer{
+    text-align: right;
+    margin: auto;
+    max-width: 1300px;
+    margin-right:35px;
+}

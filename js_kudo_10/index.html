@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<main>
+    <div class="container">
+        <h1 class="title">JANKEN BATTLE</h1>
+        <p class="text">グー、チョキ、パーのどれかを選んでください</p>
+    </div>  
+
+    <div class="contents">
+        <div class="title_text">
+            <p class="you-text">YOU</p>
+            <p class="com-text">COMPUTER</p>  
+        </div>
+        <div class="janken">
+            <ul class="janken-select">
+                <li class="goo"><button type="button" class="button_item"><img src="img/01.png" alt="" class="button" onclick="janken(0)"></button></li>
+                <li class="choki"><button type="button" class="button_item"><img src="img/02.png" alt="" class="button" onclick="janken(1)"></button></li>
+                <li class="par"><button type="button" class="button_item"><img src="img/03.png" alt="" class="button"  onclick="janken(2)"></button></li>
+            </ul>
+            <div class="main-janken">
+                <div class="main-janken-area"><img src="img/01.png" id="userImg" class="user_img"></div>
+                <!-- <input type="button" value="勝負する" class="button_item2">  -->
+            </div>
+            <div class="vs">
+               <p>VS</p>
+               <p id="judge" class="judge"></p>
+            </div>
+            <div class="com-janken">
+                <div class="com-janken-area"><img src="img/01.png" alt="" id="pcImg" class="com_img"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+</main>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="javascript.js"></script>
+    
+</body>
+</html>

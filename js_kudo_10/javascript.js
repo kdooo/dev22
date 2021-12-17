@@ -1,11 +1,13 @@
-
-
-function janken(user) {
     // コンピュータの手の画像ファイル名を配列に保存
     let pcJankens = ['01.png', '02.png', '03.png'];
  
     // ユーザの手の画像ファイル名を配列に保存
     let userJankens = ['01.png', '02.png', '03.png'];
+
+
+    
+function janken(user) {
+
  
     // コンピュータの手を乱数(0～2）で作成
     let pc = Math.floor(Math.random() * 3);

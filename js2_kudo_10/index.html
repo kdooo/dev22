@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery-2.1.3.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="main">
+        <div class="header">
+            <h1 class="memo-title" id="typewriter"></h1>
+            <p class="memo-text">メモしていきましょう</p>
+        </div>
+        <div class="title">
+            <p>TITLE</p>
+            <input type="text" id="key" class="title-form">
+        </div>
+        <div class="day">
+            <p>DAY</p>
+            <input type="date" id="day" class="title-form">
+        </div>
+        <div class="text">
+            <p>TEXT</p>
+            <textarea id="memo" class="text-form"></textarea>
+        </div>
+        <div class="button-contents">
+        <ul class="button">
+                <button id="save" class="save-btn">SAVE</li>
+                <button id="clear" class="clear-btn">CLEAR</li>
+            </ul>
+        </div>
+        <table id="list">
+
+        </table>
+
+    </div>
+
+    <script src="script.js"></script>
+
+    
+</body>
+</html>

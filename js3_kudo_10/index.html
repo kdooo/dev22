@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+
+    <div class="main">
+        <div class="title">
+            <h1 class="title_text">MESSAGE</h1>
+            <p class="title_subtext">メッセージを送信しよう</p>
+        </div>
+        <div class="text-form">
+            <div class="message-main">
+                <h2 class="message-text">TITLE</h2>
+                <input type="text" name="" id="uname" class="form-title">
+            </div>
+            <div class="text">
+                <h2 class="message-text">TEXT</h2>
+                <textarea type="text" name="" id="text" class="form-text"></textarea>
+            </div>
+
+            <div class="button-contents">
+                <div class="button">
+                    <button id="send" class="save-button">SEND</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="output" style="overflow: auto;height: 300px;" class="output"></div>
+
+        </table>
+
+        
+    </div>
+
+   <!-- JQueryはヘッドタグに書かない（重くなる） -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
+
+    <!-- firebaseのコードを貼り付ける -->
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+
+        //Gsの授業で追加1
+        import { getDatabase, ref, push, set, onChildAdded, remove, onChildRemoved } 
+        from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyB5rjl0fbNI5ek40L7mFgCGFAufhmL06WQ",
+          authDomain: "gsdemo-390bb.firebaseapp.com",
+          projectId: "gsdemo-390bb",
+          storageBucket: "gsdemo-390bb.appspot.com",
+          messagingSenderId: "76467913935",
+          appId: "1:76467913935:web:890010f81d877490ac23ba"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+
+        //Gsの授業で追加2        
+        const db  = getDatabase(app); //RealtimeDBに接続
+        const dbRef = ref(db,"chat"); //RealtimeDB内の"chat"を使う
+
+
+
+        $('#send').on('click', function(){
+
+            const msg = {
+            uname: $('#uname').val(),
+            text: $('#text').val(), 
+            }
+
+                    
+
+            //ユニークKEYを生成 = 絶対にかぶらない番号みたいなもの
+            const newPostRef = push(dbRef);
+
+            //"chat"にユニークKEYをつけてオブジェクトデータを登録
+            set(newPostRef, msg);
+                    
+
+        });
+
+
+
+      //受信処理
+      onChildAdded(dbRef, function (data) {
+        const msg = data.val();
+        const key = data.key;　
+
+        console.log(key, '鍵')
+
+
+        // テンプレートリテラル
+        let hh = `
+        <div class="message" data-key=${key}>
+          <input type="text" value=${msg.uname} class="uname msg"/>
+          <input type="text" value=${msg.text} class="txt msg" />
+          <p class="update">更新</p>         
+          <p class="delete">削除</p>
+        </div>`;
+        //この一つの塊が「鍵」を表してる
+
+        $("#output").append(hh);
+      });
+
+    //DOMで作ったHTMLは普通じゃ動かない
+
+    //削除  
+    $(document).on("click", ".delete", function(){
+        var v = $(this).parent().data().key;
+        console.log(v, 'vvv') //-MrWxLlpH8HdF7WXK_U9
+
+        //vは鍵
+        remove(ref(db,'chat/' + v));
+
+        //HTMLを消す方法
+        $(this).parent().remove();
+    });
+
+    //更新
+    $(document).on("click", ".update", function(){
+        var v = $(this).parent().data().key;
+
+        var nameValue = $(this).siblings(".uname").val();
+        var textValue = $(this).siblings(".txt").val();
+
+        console.log(nameValue);
+        console.log(textValue);
+        
+        //更新処理
+        set(ref(db, "chat/" + v),{
+            uname: nameValue,
+            text: textValue,
+        })
+
+    });
+        
+    </script>
+
+    
+</body>
+</html>

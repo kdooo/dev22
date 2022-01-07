@@ -1,0 +1,45 @@
+@charset "UTF-8";
+html{
+    font-size: 62.5%;
+}
+
+
+.main{
+    text-align: center;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.btn{
+    font-size: 120px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+}
+
+
+/* .btn:hover {
+    opacity: 0.5;
+} */
+
+body{
+    background-color: #E4E4E4;
+}
+
+.wrap{
+    position: absolute;
+}
+
+.wrap p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 30px;
+    color: white;
+
+}
